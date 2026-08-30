@@ -6,9 +6,11 @@ int main() {
     int option;
     int letter = 0;
     int space = 0;
+    int word = 0;
+    int in_word = 0;
     char text[101];
 
-    printf("TextAnalyzer v1.0\n");
+    printf("TextAnalyzer v1.1\n");
     printf("1. reference\n");
     printf("2. Text analysis\n");
     do {
@@ -17,7 +19,7 @@ int main() {
 
         switch(option) {
             case 1:
-                printf("The first version of TextAnalyzer can only count letters and spaces :)");
+                printf("The first version of TextAnalyzer can only count letters, words and spaces :)");
                 break;
 
             case 2:
@@ -36,9 +38,19 @@ int main() {
                         ++letter;
                     }
                 }
+                for (int i = 0; i < strlen(text); i++) {
+                    if (isspace(text[i])) {
+                        in_word = 0;
+                    }
+                    else if (isalpha(text[i]) && in_word == 0) {
+                        word++;
+                        in_word = 1;
+                    }
+                }
                 printf("Analysis result:\n");
                 printf("Letters: %d\n", letter);
                 printf("Spaces: %d\n", space);
+                printf("Words: %d\n", word);
                 break;
 
             default:
