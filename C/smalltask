@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main() {
+    srand(time(NULL));
+    int min = 1;
+    int max = 100;
+    int minnum;
+    int maxnum;
+
+    int array1[] = {1, 2, 3, 4, 5};
+    printf("array[2]: %d\n\n", array1[2]);
+
+    int array2[5];
+
+    for (int i = 0; i < 5; i++) {
+        array2[i] = rand() % (max - min + 1) + min;
+    }
+
+    printf("array2: " );
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", array2[i]);
+    }
+    minnum = array2[0];
+    maxnum = array2[0];
+
+    for (int i = 0; i < 5; i++) {
+        if (array2[i] < minnum) {
+            minnum = array2[i];
+        }
+        if (array2[i] > maxnum) {
+            maxnum = array2[i];
+        }
+    }
+    printf("\nminnum: %d\nmaxnum: %d\n\n", minnum, maxnum);
+}
