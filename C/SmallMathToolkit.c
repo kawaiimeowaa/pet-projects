@@ -1,52 +1,79 @@
 #include <stdio.h>
 
+int running = 1;
+
 void min(float numbers[], int count); // parameters
 void max(float numbers[], int count);
+void square(int square_number);
+void cube(int cube_number);
+void avg(float numbers[], int count);
 
 int main () {
-    int operation;
-    int count;
-    float numbers[100];
-    printf("MathToolkit v0.1\n\n");
+    while (running == 1) {
+        int operation;
+        int count;
+        int square_number;
+        int cube_number;
+        float numbers[100];
+        printf("MathToolkit v0.1\n\n");
 
-    printf("1. Min\n");
-    printf("2. Max\n");
-    printf("3. Square\n");
-    printf("4. Cube\n");
-    printf("5. Average\n");
-    printf("6. Factorial\n");
-    printf("7. Exit");
+        printf("1. Min\n");
+        printf("2. Max\n");
+        printf("3. Square\n");
+        printf("4. Cube\n");
+        printf("5. Average\n");
+        printf("6. Factorial\n");
+        printf("7. Exit\n");
 
+        printf("Choose operation:\n");
+        scanf("%d",&operation);
 
-    printf("Choose operation:\n");
-    scanf("%d",&operation);
+        switch (operation) {
+            case 1:
+                printf("how many numbers: ");
+                scanf("%d",&count);
 
-    printf("how many numbers: \n");
-    scanf("%d",&count);
+                for(int i=0;i<count;i++) {
+                    scanf("%f",&numbers[i]); // all numbers in numbers have float data type
+                }
 
-    for(int i=0;i<count;i++) {
-        scanf("%f",&numbers[i]); // all numbers in numbers have float data type
-    }
+                min(numbers,count);
+                break;
+            case 2:
+                printf("how many numbers: ");
+                scanf("%d",&count);
 
-    switch (operation) {
-        case 1:
-            min(numbers,count);
-            break;
-        case 2:
-            max(numbers,count);
-            break;
-        case 3:
+                for(int i=0;i<count;i++) {
+                    scanf("%f",&numbers[i]); // all numbers in numbers have float data type
+                }
 
-            break;
-        case 4:
+                max(numbers,count);
+                break;
+            case 3:
+                printf("Enter number: ");
+                scanf("%d",&square_number);
+                square(square_number);
+                break;
+            case 4:
+                printf("Enter number: ");
+                scanf("%d",&cube_number);
+                cube(cube_number);
+                break;
+            case 5:
+                printf("How many numbers: ");
+                scanf("%d", &count);
+                for (int i=0;i<count;i++) {
+                scanf("%f", &numbers[i]);
+                }
+                avg(numbers, count);
+                break;
+            case 6:
 
-            break;
-        case 5:
-
-            break;
-        case 6:
-
-            break;
+                break;
+            case 7:
+                running = 0;
+                break;
+        }
     }
 }
 
@@ -70,4 +97,23 @@ void max(float numbers[], int count) {
         }
     }
     printf("max: %f\n", max_number);
+}
+
+void square(int square_number) {
+    square_number = square_number * square_number;
+    printf("square: %d\n", square_number);
+}
+
+void cube(int cube_number) {
+    cube_number = cube_number * cube_number * cube_number;
+    printf("cube: %d\n", cube_number);
+}
+
+void avg(float numbers[], int count) {
+    float all_numbers = 0;
+    for (int n = 0; n < count; n++) {
+        all_numbers = all_numbers + numbers[n];
+    }
+    float result = all_numbers / count;
+    printf("AVG: %f\n", result);
 }
