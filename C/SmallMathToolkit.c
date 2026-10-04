@@ -7,6 +7,7 @@ void max(float numbers[], int count);
 void square(int square_number);
 void cube(int cube_number);
 void avg(float numbers[], int count);
+void factorial(int number);
 
 int main () {
     while (running == 1) {
@@ -14,6 +15,7 @@ int main () {
         int count;
         int square_number;
         int cube_number;
+        int number;
         float numbers[100];
         printf("MathToolkit v0.1\n\n");
 
@@ -68,7 +70,9 @@ int main () {
                 avg(numbers, count);
                 break;
             case 6:
-
+                printf("Enter your number: ");
+                scanf("%d", &number);
+                factorial(number);
                 break;
             case 7:
                 running = 0;
@@ -116,4 +120,12 @@ void avg(float numbers[], int count) {
     }
     float result = all_numbers / count;
     printf("AVG: %f\n", result);
+}
+
+void factorial(int number) {
+    long long fac = 1;
+    for (int i = 1; i <= number;i++) {
+        fac = fac * i;
+    }
+    printf("Factorial: %d\n", fac);
 }
