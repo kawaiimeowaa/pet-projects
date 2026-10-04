@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int running = 1;
 
@@ -8,6 +9,7 @@ void square(int square_number);
 void cube(int cube_number);
 void avg(float numbers[], int count);
 void factorial(int number);
+void root(float root_number);
 
 int main () {
     while (running == 1) {
@@ -16,6 +18,7 @@ int main () {
         int square_number;
         int cube_number;
         int number;
+        float root_number;
         float numbers[100];
         printf("MathToolkit v0.1\n\n");
 
@@ -25,9 +28,10 @@ int main () {
         printf("4. Cube\n");
         printf("5. Average\n");
         printf("6. Factorial\n");
-        printf("7. Exit\n");
+        printf("7. Root\n");
+        printf("8. Exit\n");
 
-        printf("Choose operation:\n");
+        printf("Choose operation: ");
         scanf("%d",&operation);
 
         switch (operation) {
@@ -75,6 +79,11 @@ int main () {
                 factorial(number);
                 break;
             case 7:
+                printf("Enter your number: ");
+                scanf("%f", &root_number);
+                root(root_number);
+                break;
+            case 8:
                 running = 0;
                 break;
         }
@@ -128,4 +137,12 @@ void factorial(int number) {
         fac = fac * i;
     }
     printf("Factorial: %d\n", fac);
+}
+
+void root(float root_number) {
+    if (root_number < 0) {
+        printf("Error. number < 0");
+    } else {
+        printf("Root: %.2f\n", sqrt(root_number));
+    }
 }
