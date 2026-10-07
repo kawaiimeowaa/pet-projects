@@ -5,7 +5,7 @@ int running = 1;
 
 void min(float numbers[], int count); // parameters
 void max(float numbers[], int count);
-void square(int square_number);
+void square(float square_number);
 void cube(int cube_number);
 void avg(float numbers[], int count);
 void factorial(int number);
@@ -15,7 +15,7 @@ int main () {
     while (running == 1) {
         int operation;
         int count;
-        int square_number;
+        float square_number;
         int cube_number;
         int number;
         float root_number;
@@ -57,7 +57,7 @@ int main () {
                 break;
             case 3:
                 printf("Enter number: ");
-                scanf("%d",&square_number);
+                scanf("%f",&square_number);
                 square(square_number);
                 break;
             case 4:
@@ -112,9 +112,9 @@ void max(float numbers[], int count) {
     printf("max: %f\n", max_number);
 }
 
-void square(int square_number) {
+void square(float square_number) {
     square_number = square_number * square_number;
-    printf("square: %d\n", square_number);
+    printf("square: %f\n", square_number);
 }
 
 void cube(int cube_number) {
@@ -136,7 +136,7 @@ void factorial(int number) {
     for (int i = 1; i <= number;i++) {
         fac = fac * i;
     }
-    printf("Factorial: %d\n", fac);
+    printf("Factorial: %lld\n", fac);
 }
 
 void root(float root_number) {
