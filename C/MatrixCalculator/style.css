@@ -1,0 +1,13 @@
+window {
+    background-color: #000000;
+}
+
+headerbar {
+    background: #333333;
+    color: #ffffff;
+}
+
+headerbar label {
+    color: #ffffff;
+    font-weight: bold;
+}
