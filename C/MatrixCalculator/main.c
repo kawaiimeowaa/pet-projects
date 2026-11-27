@@ -25,14 +25,8 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_window_set_default_size(GTK_WINDOW(window), 1000, 600);
 
 
-    // Main container
-    GtkWidget *main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-
     // Header bar
     GtkWidget *header = gtk_header_bar_new();
-
-    // Window title
-    gtk_header_bar_set_title_widget(GTK_HEADER_BAR(header), gtk_label_new("Matrix Calculator"));
 
     // Set titlebar
     gtk_window_set_titlebar(GTK_WINDOW(window), header);
