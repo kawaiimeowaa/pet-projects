@@ -15,3 +15,15 @@ headerbar label {
     color: #ffffff;
     font-weight: bold;
 }
+
+.settings-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.matrix-label {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
